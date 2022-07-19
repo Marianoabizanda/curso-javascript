@@ -80,16 +80,6 @@ let productoAcomprar = prompt("Ingrese que desea comprar: \n- Vinos \n- Cervezas
 
 
 
-let cerveza = {
-  marcas: {
-    comunes: ["quilmes","brahma","schneider"],
-    medianas:["amstel","andes","patagonia"],
-    premium:["heineken","stella artois","warsteiner"]
-  }
-}
-
-
-
 // Funciones
 function cervezasComunes(){
   comunes = prompt(cerveza.marcas.comunes)
@@ -105,28 +95,23 @@ function PrecioCervezasComunes(quilmes, brhama, schneider ){
   preciocomun = $150, $200, $240
 }
 
+let producto1 = "quilmes"
+let precio1 = 100
+let producto2 = "brahma"
+let precio2 = 120
+let producto3 = "iguana"
+let precio3 = 110
 
-let marcas
-let cervezas
-
-
+let opciones = 0
+let productos = 0
 
 // Ejecucion
-while(cervezas !=4){
-  cervezas = prompt("Ingrese una opcion: \n1: marcas \n2: precios \n3: cantidad \n4: salir")
-  if(cervezas == 1){
-    marcas = prompt("1: comunes, 2: medianas, 3: premium")
-    if(marcas == 1){
-      marcas = cervezasComunes()
-    }
-    else if (marcas == 2){
-      cervezasMedianas()
-    }
-    else if(marcas == 3){
-      cervezasPremium()
-      
-    }
-    
+while(opciones !=2){
+  opciones = parseInt(prompt("Ingrese una opcion: \n1: ver productos \n2: salir")) //dos opciones (ver productos o salir)
+  console.log(opciones)
+  if(opciones === 1){ //accedo a ver los productos
+    productos = parseInt(prompt("ver precios de \n1: cervezas \n2: vinos \n3: vodka")) //me deja ver los precios de los productos
+    producto(1)
   }
 
 }
@@ -134,7 +119,28 @@ while(cervezas !=4){
 
 
 
+function producto (tipo) {
+  console.log(tipo)
+  if(productos === tipo){ //veo los precios de las cervezas
+    let marca = prompt("comprar cerveza \n1: quilmes $100 \n2: brahma $120 \n3: iguana $110")
+    console.log(marca)
+    if (marca == 1) {//compra cerveza quilmes
+      let cantidad = parseInt(prompt("cuantas unidades?"))
+      let total = cantidad*precio1
+      alert(total)
+    } else if (marca == 2) { //comprar brahama
+      let cantidad = parseInt(prompt("cuantas unidades?"))
+      let total = cantidad*precio2
+      alert(total)
+    } else if (marca == 3) { //comprar iguana
+      let cantidad = parseInt(prompt("cuantas unidades?"))
+      let total = cantidad*precio3
+      alert(total)
+    } else {
+      alert("no se encontró el producto, reinicie la app")
+      opciones = 2
+    }
+  }
+}
 
-
-  
 
