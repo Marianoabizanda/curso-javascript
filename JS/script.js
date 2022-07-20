@@ -82,6 +82,11 @@ let precio5 = 200
 let producto6 = "benjamin"
 let precio6 = 180
 
+// Aperitivos
+let producto7 = "fernet branca"
+let precio7 = 900
+let producto8 = "campari"
+let precio8 = 820
 
 // otros
 let opciones = 0
@@ -98,8 +103,9 @@ while(opciones !=2){
   console.log(opciones)
   if(opciones === 1){ //accedo a ver los productos
     productos = parseInt(prompt("ver precios de \n1: cervezas \n2: vinos \n3: aperitivos")) //me deja ver los precios de los productos
-    producto(1);
-    producto(2);
+    cervezas(1);
+    vinos(2)
+    aperitivos(3)
   }
 
 }
@@ -107,7 +113,7 @@ while(opciones !=2){
 
 
 
-function producto (tipo) {
+function cervezas (tipo) {
   console.log(tipo)
   if(productos === tipo){ //veo los precios de las cervezas
     let marca = prompt("comprar cerveza \n1: quilmes $100 \n2: brahma $120 \n3: iguana $110")
@@ -131,9 +137,9 @@ function producto (tipo) {
   }
 }
 
-// ----------------------------------------------------------------------------------------------
 
-function producto (tipo) {
+
+function vinos (tipo) {
   console.log(tipo)
   if(productos === tipo){ //veo los precios de los vinos
     let marca = prompt("comprar vino \n1: alamos $280 \n2: aime $200 \n3: benjamin $180")
@@ -158,23 +164,25 @@ function producto (tipo) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function aperitivos (tipo) {
+  console.log(tipo)
+  if(productos === tipo){ //veo los precios de los vinos
+    let marca = prompt("comprar aperitivo \n1: fernet branca $900 \n2: campari $820 ")
+    console.log(marca)
+    if (marca == 1) {
+      let cantidad = parseInt(prompt("cuantas unidades?"))
+      let total = cantidad*precio7
+      alert("$" + total)
+    } else if (marca == 2) { 
+      let cantidad = parseInt(prompt("cuantas unidades?"))
+      let total = cantidad*precio8
+      alert("$" + total)
+    } else {
+      alert("no se encontró el producto, reinicie la app")
+      opciones = 2
+    }
+  }
+}
 
 
 
