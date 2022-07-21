@@ -111,7 +111,7 @@ while(opciones !=2){
 }
 
 
-
+//la logica está muy bien planteada! fijate que las 3 funciones (cervezas,vinos y aperitivos son caaasi iguales: te animas a hacer una sola que sirva para lo mismo???)
 
 function cervezas (tipo) {
   console.log(tipo)
