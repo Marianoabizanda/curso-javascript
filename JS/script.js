@@ -167,7 +167,7 @@ let productos = 0
 
 // Constructor  objetos
 
-function Bebida (nombre, precio, stock){
+function Bebida (nombre, precio, stock){ //crear objetos y metodos con clases!!! esto casi que ni se usa
   this.nombre = nombre
   this.precio = precio
   this.stock = stock
@@ -175,7 +175,7 @@ function Bebida (nombre, precio, stock){
 
 
 // creacion de objetos
-const cerveza1 = new Bebida ("Quilmes", 100, 500)
+const cerveza1 = new Bebida ("Quilmes", 100, 500) //ok (pero que Bebida sea una clase)
 const cerveza2 = new Bebida ("Brahma", 120, 450)
 const cerveza3 = new Bebida ("Imperial", 150, 370)
 
@@ -190,7 +190,7 @@ const aperitivo2 = new Bebida ("Campari", 820, 240)
 
 // creacion de array para todos los productos en "bebidas"
 // const listaBebidas = [Cerveza, Vino, Aperitivo]
-const listaCervezas = [cerveza1, cerveza2, cerveza3];
+const listaCervezas = [cerveza1, cerveza2, cerveza3]; //ok
 const listaVinos = [vino1, vino2, vino3];
 const listaAperitivos = [aperitivo1, aperitivo2];
 
