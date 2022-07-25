@@ -101,6 +101,7 @@ let stock8 = 240
 
 // Constructor  objetos
 
+
 /*function Bebida (nombre, precio, stock){
     function Bebida (nombre, precio, stock){ //crear objetos y metodos con clases!!! esto casi que ni se usa
       this.nombre = nombre
@@ -127,6 +128,34 @@ let stock8 = 240
     // const listaCervezas = [cerveza1, cerveza2, cerveza3]; //ok
     // const listaVinos = [vino1, vino2, vino3];
     // const listaAperitivos = [aperitivo1, aperitivo2];
+
+// function Bebida (nombre, precio, stock){ //crear objetos y metodos con clases!!! esto casi que ni se usa
+//   this.nombre = nombre
+//   this.precio = precio
+//   this.stock = stock
+// }
+
+
+// creacion de objetos
+// const cerveza1 = new Bebida ("Quilmes", 100, 500) //ok (pero que Bebida sea una clase)
+// const cerveza2 = new Bebida ("Brahma", 120, 450)
+// const cerveza3 = new Bebida ("Imperial", 150, 370)
+
+// const vino1 = new Bebida ("Alamos", 280, 220)
+// const vino2 = new Bebida ("Aime", 200, 350)
+// const vino3 = new Bebida ("Benjamin", 180, 340)
+
+// const aperitivo1 = new Bebida ("Fernet Branca", 900, 300)
+// const aperitivo2 = new Bebida ("Campari", 820, 240)
+
+
+
+// creacion de array para todos los productos en "bebidas"
+// const listaBebidas = [Cerveza, Vino, Aperitivo]
+const listaCervezas = [cerveza1, cerveza2, cerveza3]; //ok
+const listaVinos = [vino1, vino2, vino3];
+const listaAperitivos = [aperitivo1, aperitivo2];
+
 
 
 
@@ -250,7 +279,7 @@ let stock8 = 240
 
 
 
-    
+
     // Defino un array solo para nombres de los productos
     let nombresCervezas = []
     function agregarCervezas(){
