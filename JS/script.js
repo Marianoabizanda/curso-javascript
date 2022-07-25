@@ -99,7 +99,8 @@ let stock8 = 240*/                         //Todas estas variables se pasan a ob
 
 
 
-// Constructor para objetos
+// Constructor  objetos
+
 // function Bebida (nombre, precio, stock){
 //   this.nombre = nombre
 //   this.precio = precio
@@ -198,8 +199,10 @@ let productos = 0
 
 
 // creacion de array para todos los productos en "bebidas"
-// const listaBebidas = [cerveza1, cerveza2, cerveza3, vino1, vino2, vino3, aperitivo1, aperitivo2]
 const listaBebidas = [Cerveza, Vino, Aperitivo]
+// const listaBebidas = [cerveza1, cerveza2, cerveza3, vino1, vino2, vino3, aperitivo1, aperitivo2]
+
+
 
 
 
