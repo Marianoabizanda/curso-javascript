@@ -60,8 +60,71 @@ let productoAcomprar = prompt("Ingrese que desea comprar: \n- Vinos \n- Cervezas
 
 
 
+// -------------------------------------------------------------------------------------------------------------
 
-/*Cervezas
+// class Cerveza { //defini una clase para mi producto
+
+//   constructor(producto, precio, stock) {
+//       this.producto = producto,
+//       this.precio = precio,
+//       this.stock = stock
+//   }
+
+// }
+
+// let cervezas = [ //defino un ARRAY solo para cervezas
+    
+//     new Cerveza ('Quilmes', 100, 500), 
+//     new Cerveza ('Brahma',120, 450), 
+//     new Cerveza ('Imperial',150 ,370),
+   
+// ];
+
+// ------------------------------------------------------------------------------------------------------------
+
+// class Vino { //defini una clase para mi producto
+
+//   constructor(producto, precio, stock) {
+//       this.producto = producto,
+//       this.precio = precio,
+//       this.stock = stock
+//   }
+
+// }
+
+// let vinos = [ //defino un ARRAY solo para vinos
+    
+//     new Vino ('Alamos',280 ,220 ), 
+//     new Vino ('Aime',200 ,350 ), 
+//     new Vino ('Benjamin',180,340 ),
+   
+// ];
+
+
+// ------------------------------------------------------------------------------------------------------------
+
+// class Aperitivo { //defini una clase para mi producto
+
+//   constructor(producto, precio, stock) {
+//       this.producto = producto,
+//       this.precio = precio,
+//       this.stock = stock
+//   }
+
+// }
+
+// let aperitivos = [ //defino un ARRAY solo para aperitivos
+    
+//     new Aperitivo ('Fernet Branca', 900, 300), 
+//     new Aperitivo ('Campari', 820, 240), 
+   
+// ];
+
+// -------------------------------------------------------------------------------------------------------------
+
+
+/*
+Cervezas
 let producto1 = "quilmes"
 let precio1 = 100
 let stock1 = 500
@@ -69,7 +132,7 @@ let producto2 = "brahma"
 let precio2 = 120
 let stock2 = 450
 let producto3 = "imperial"
-let precio3 = 110
+let precio3 = 150
 let stock3 = 370
 
 Vinos
@@ -89,107 +152,11 @@ let precio7 = 900
 let stock7 = 300
 let producto8 = "campari"
 let precio8 = 820
-let stock8 = 240*/                         //Todas estas variables se pasan a objetos
+let stock8 = 240        
+*/
 
 
-
-
-
-
-
-
-
-// Constructor  objetos
-
-// function Bebida (nombre, precio, stock){
-//   this.nombre = nombre
-//   this.precio = precio
-//   this.stock = stock
-// }
-
-
-// creacion de objetos
-// const cerveza1 = new Bebida ("Quilmes", 100, 500)
-// const cerveza2 = new Bebida ("Brahma", 120, 450)
-// const cerveza3 = new Bebida ("Imperial", 150, 370)
-
-// const vino1 = new Bebida ("Alamos", 280, 220)
-// const vino2 = new Bebida ("Aime", 200, 350)
-// const vino3 = new Bebida ("Benjamin", 180, 340)
-
-// const aperitivo1 = new Bebida ("Fernet Branca", 900, 300)
-// const aperitivo2 = new Bebida ("Campari", 820, 240)
-
-
-
-
-
-
-
-// -------------------------------------------------------------------------------------------------------------
-
-class Cerveza { //defini una clase para mi producto
-
-  constructor(producto, precio, stock) {
-      this.producto = producto,
-      this.precio = precio,
-      this.stock = stock
-  }
-
-}
-
-let cervezas = [ //defino un ARRAY solo para cervezas
-    
-    new Cerveza ('Quilmes', 100, 500), 
-    new Cerveza ('Brahma',120, 450), 
-    new Cerveza ('Imperial',150 ,370),
-   
-];
-
-// ------------------------------------------------------------------------------------------------------------
-
-class Vino { //defini una clase para mi producto
-
-  constructor(producto, precio, stock) {
-      this.producto = producto,
-      this.precio = precio,
-      this.stock = stock
-  }
-
-}
-
-let vinos = [ //defino un ARRAY solo para vinos
-    
-    new Vino ('Alamos',280 ,220 ), 
-    new Vino ('Aime',200 ,350 ), 
-    new Vino ('Benjamin',180,340 ),
-   
-];
-
-
-// ------------------------------------------------------------------------------------------------------------
-
-class Aperitivo { //defini una clase para mi producto
-
-  constructor(producto, precio, stock) {
-      this.producto = producto,
-      this.precio = precio,
-      this.stock = stock
-  }
-
-}
-
-let aperitivos = [ //defino un ARRAY solo para aperitivos
-    
-    new Aperitivo ('Fernet Branca', 900, 300), 
-    new Aperitivo ('Campari', 820, 240), 
-   
-];
-
-// -------------------------------------------------------------------------------------------------------------
-
-
-// otros
+//  otros
 let opciones = 0
 let productos = 0
 
@@ -198,13 +165,34 @@ let productos = 0
 
 
 
+// Constructor  objetos
+
+function Bebida (nombre, precio, stock){
+  this.nombre = nombre
+  this.precio = precio
+  this.stock = stock
+}
+
+
+// creacion de objetos
+const cerveza1 = new Bebida ("Quilmes", 100, 500)
+const cerveza2 = new Bebida ("Brahma", 120, 450)
+const cerveza3 = new Bebida ("Imperial", 150, 370)
+
+const vino1 = new Bebida ("Alamos", 280, 220)
+const vino2 = new Bebida ("Aime", 200, 350)
+const vino3 = new Bebida ("Benjamin", 180, 340)
+
+const aperitivo1 = new Bebida ("Fernet Branca", 900, 300)
+const aperitivo2 = new Bebida ("Campari", 820, 240)
+
+
+
 // creacion de array para todos los productos en "bebidas"
-const listaBebidas = [Cerveza, Vino, Aperitivo]
-// const listaBebidas = [cerveza1, cerveza2, cerveza3, vino1, vino2, vino3, aperitivo1, aperitivo2]
-
-
-
-
+// const listaBebidas = [Cerveza, Vino, Aperitivo]
+const listaCervezas = [cerveza1, cerveza2, cerveza3];
+const listaVinos = [vino1, vino2, vino3];
+const listaAperitivos = [aperitivo1, aperitivo2];
 
 
 
@@ -216,19 +204,18 @@ while(opciones !=2){
   console.log(opciones)
   if(opciones === 1){ //accedo a ver los productos
     productos = parseInt(prompt("ver precios de \n1: cervezas \n2: vinos \n3: aperitivos")) //me deja ver los precios de los productos
-    cervezas(1);
-    vinos(2)
-    aperitivos(3)
+    comprar(1)
   }
 
 }
 
 
 //la logica está muy bien planteada! fijate que las 3 funciones (cervezas,vinos y aperitivos son caaasi iguales: te animas a hacer una sola que sirva para lo mismo???)
+// HECHO!
 
-function cervezas (tipo) {
-  console.log(tipo)
-  if(productos === tipo){ //veo los precios de las cervezas
+function comprar (cerveza) {
+  console.log(cerveza)
+  if(productos === cerveza){ //veo los precios de las cervezas
     let marca = prompt("comprar cerveza \n1: quilmes $100 \n2: brahma $120 \n3: imperial $150")
     console.log(marca)
     if (marca == 1) {//compra cerveza Quilmes
@@ -248,13 +235,7 @@ function cervezas (tipo) {
       opciones = 2
     }
   }
-}
-
-
-
-function vinos (tipo) {
-  console.log(tipo)
-  if(productos === tipo){ //veo los precios de los vinos
+  if(productos === 2){ //veo los precios de los vinos
     let marca = prompt("comprar vino \n1: alamos $280 \n2: aime $200 \n3: benjamin $180")
     console.log(marca)
     if (marca == 1) {//compra vino Alamos
@@ -274,12 +255,7 @@ function vinos (tipo) {
       opciones = 2
     }
   }
-}
-
-
-function aperitivos (tipo) {
-  console.log(tipo)
-  if(productos === tipo){ //veo los precios de los aperitivos
+  if(productos === 3){ //veo los precios de los aperitivos
     let marca = prompt("comprar aperitivo \n1: fernet branca $900 \n2: campari $820 ")
     console.log(marca)
     if (marca == 1) {//compra aperitivo Branca
@@ -298,16 +274,21 @@ function aperitivos (tipo) {
 }
 
 
-// Defino un array solo para nombres de los productos
-let nombresProductos = []
 
-function agregarProductos(){
-  for(const bebida of listaBebidas){
-     nombresProductos.push(bebida.producto) 
+// Defino un array solo para nombres de los productos
+let nombresCervezas = []
+
+function agregarCervezas(){
+  for(const cerveza of listaCervezas){
+     nombresCervezas.push(cerveza.nombre) 
       }
 }
 
-agregarProductos()
+agregarCervezas()
+
+
+
+
 
 
 
