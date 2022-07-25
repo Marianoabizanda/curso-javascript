@@ -152,14 +152,14 @@ let stock8 = 240
 
 // creacion de array para todos los productos en "bebidas"
 // const listaBebidas = [Cerveza, Vino, Aperitivo]
-const listaCervezas = [cerveza1, cerveza2, cerveza3]; //ok
-const listaVinos = [vino1, vino2, vino3];
-const listaAperitivos = [aperitivo1, aperitivo2];
+// const listaCervezas = [cerveza1, cerveza2, cerveza3]; //ok
+// const listaVinos = [vino1, vino2, vino3];
+// const listaAperitivos = [aperitivo1, aperitivo2];
 
 
 
 
-
+ //------------------------------------------------------------------------------------------------ 
 
   class Bebida { //defini una clase para mis productos
 
@@ -169,33 +169,35 @@ const listaAperitivos = [aperitivo1, aperitivo2];
       this.stock = stock
   }
 
+ 
   }
 
-  // CREO LOS ARRAYS
+  const cervezaQuilmes = new Bebida ('Quilmes', 100, 500)
+  const cervezaBrahma = new Bebida ('Brahma',120, 450)
+  const cervezaImperial = new Bebida ('Imperial',150 ,370)
+  const vinoAlamos = new Bebida ('Alamos',280 ,220 )
+  const vinoAime = new Bebida ('Aime',200 ,350 )
+  const vinoBenjamin = new Bebida ('Benjamin',180,340 )
+  const aperitivoBranca = new Bebida ('Fernet Branca', 900, 300)
+  const aperitivoCampari = new Bebida ('Campari', 820, 240)
+ 
+  // ---------------------------------------------------------------------------------------------
 
-  let cervezas = [ //defino un ARRAY solo para cervezas
-    
-    new Bebida ('Quilmes', 100, 500), 
-    new Bebida ('Brahma',120, 450), 
-    new Bebida ('Imperial',150 ,370),
+   // CREO LOS ARRAYS
+
+   //defino un ARRAY solo para cervezas
+   let listaCervezas = [cervezaQuilmes, cervezaBrahma, cervezaImperial ];
    
-  ];
-
-
-  let vinos = [ //defino un ARRAY solo para vinos
+   //defino un ARRAY solo para vinos
+   let listaVinos = [vinoAlamos, vinoAime, vinoBenjamin ];
     
-    new Bebida ('Alamos',280 ,220 ), 
-    new Bebida ('Aime',200 ,350 ), 
-    new Bebida ('Benjamin',180,340 ),
+   //defino un ARRAY solo para aperitivos
    
-  ];
-
-   let aperitivos = [ //defino un ARRAY solo para aperitivos
+   let listaAperitivos = [ aperitivoBranca, aperitivoCampari ];
     
-    new Bebida ('Fernet Branca', 900, 300), 
-    new Bebida ('Campari', 820, 240), 
    
-   ];
+   
+  
 
 
     //  otros
@@ -222,15 +224,15 @@ const listaAperitivos = [aperitivo1, aperitivo2];
         console.log(marca)
         if (marca == 1) {//compra cerveza Quilmes
           let cantidad = parseInt(prompt("cuantas unidades?"))
-          let total = cantidad*cerveza1.precio
+          let total = cantidad*cervezaQuilmes.precio
           alert("$" + total)
         } else if (marca == 2) { //comprar Brahama
           let cantidad = parseInt(prompt("cuantas unidades?"))
-          let total = cantidad*cerveza2.precio
+          let total = cantidad*cervezaBrahma.precio
           alert("$" + total)
         } else if (marca == 3) { //comprar Imperial
           let cantidad = parseInt(prompt("cuantas unidades?"))
-          let total = cantidad*cerveza3.precio
+          let total = cantidad*cervezaImperial.precio
           alert("$" + total)
         } else {
           alert("no se encontró el producto, reinicie la app")
@@ -242,15 +244,15 @@ const listaAperitivos = [aperitivo1, aperitivo2];
         console.log(marca)
         if (marca == 1) {//compra vino Alamos
           let cantidad = parseInt(prompt("cuantas unidades?"))
-          let total = cantidad*vino1.precio
+          let total = cantidad*vinoAlamos.precio
           alert("$" + total)
         } else if (marca == 2) { //compra vino Aime
           let cantidad = parseInt(prompt("cuantas unidades?"))
-          let total = cantidad*vino2.precio
+          let total = cantidad*vinoAime.precio
           alert("$" + total)
         } else if (marca == 3) { //compra vino Benjamin
           let cantidad = parseInt(prompt("cuantas unidades?"))
-          let total = cantidad*vino3.precio
+          let total = cantidad*vinoBenjamin.precio
           alert("$" + total)
         } else {
           alert("no se encontró el producto, reinicie la app")
@@ -262,11 +264,11 @@ const listaAperitivos = [aperitivo1, aperitivo2];
         console.log(marca)
         if (marca == 1) {//compra aperitivo Branca
           let cantidad = parseInt(prompt("cuantas unidades?"))
-          let total = cantidad*aperitivo1.precio
+          let total = cantidad*aperitivoBranca.precio
           alert("$" + total)
         } else if (marca == 2) { //compra aperitivo Campari
           let cantidad = parseInt(prompt("cuantas unidades?"))
-          let total = cantidad*aperitivo2.precio
+          let total = cantidad*aperitivoCampari.precio
           alert("$" + total)
         } else {
           alert("no se encontró el producto, reinicie la app")
@@ -282,9 +284,10 @@ const listaAperitivos = [aperitivo1, aperitivo2];
 
     // Defino un array solo para nombres de los productos
     let nombresCervezas = []
+
     function agregarCervezas(){
       for(const cerveza of listaCervezas){
-         nombresCervezas.push(cerveza.nombre) 
+         nombresCervezas.push(cerveza.producto) 
           }
     }
     agregarCervezas()
