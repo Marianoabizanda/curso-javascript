@@ -161,15 +161,14 @@ let stock8 = 240
 
  //------------------------------------------------------------------------------------------------ 
 
+  let lista = [] //esta variable va a llenarse con algunas cositas que te mejoré
+
   class Bebida { //defini una clase para mis productos
-
-  constructor(producto, precio, stock) {
-      this.producto = producto,
-      this.precio = precio,
-      this.stock = stock
-  }
-
- 
+    constructor(producto, precio, stock) { //mejorar la identacion
+        this.producto = producto,
+        this.precio = precio,
+        this.stock = stock
+    } 
   }
 
   const cervezaQuilmes = new Bebida ('Quilmes', 100, 500)
@@ -212,13 +211,13 @@ let stock8 = 240
     let nombresProductos = []
 
 
-    function agregarProductos(){
+    function agregarProductos(){//esta funcion retorna un array EXACTAMENTE IGUAL a listaProducto: NO ES NECESARIA
       for(const producto of listaProductos){
          nombresProductos.push(producto) 
           }
     }
     
-    agregarProductos()
+    agregarProductos() //no es necesario
 
 // ----------------------------------------------------------------------------------------------
     
@@ -228,17 +227,19 @@ let stock8 = 240
       console.log(opciones)
       if(opciones === 1){ //accedo a ver los productos
         productos = parseInt(prompt("ver precios de: \n" + nombresProductos.join("\n"))) //me deja ver los precios de los productos
-        comprar(1)
+        //comprar(1) //por que 1??? no deberia ser el numero que ingresa el usuario?
+        carritoDeCompra(productos) //por otro lado: donde le avisas al usuario que tiene que presionar un numero en lugar del nombre del producto? mejorar eso para la pre-entrega
       }
     }
     //la logica está muy bien planteada! fijate que las 3 funciones (cervezas,vinos y aperitivos son caaasi iguales: te animas a hacer una sola que sirva para lo mismo???)
     // HECHO!
-    function comprar (cerveza) {
+    function comprar (cerveza) { //le podes poner cualquier nombre al parametro: pero es un numero, yo le pondria num o algo mas intuitivo
       console.log(cerveza)
-      if(productos === cerveza){ //veo los precios de las cervezas
+      if(productos === cerveza){ //esto está mal: la variable productos va a ser siempre igual a la variable cerveza
         let marca = prompt("comprar cerveza \n1: quilmes $100 \n2: brahma $120 \n3: imperial $150")
+        //MARCA SE TIENE QUE GENERAR DINAMICAMENTE. QUE SUCEDERIA SI CREARA UNA CUARTA CERVEZA??? NO SE AGREGARIA NUNCA ESA OPCION
         console.log(marca)
-        if (marca == 1) {//compra cerveza Quilmes
+        if (marca == 1) {//ESTE CODIGO SE REPITE: USAR FUNCIONES!
           let cantidad = parseInt(prompt("cuantas unidades?"))
           let total = cantidad*cervezaQuilmes.precio
           alert("$" + total)
@@ -255,7 +256,7 @@ let stock8 = 240
           opciones = 2
         }
       }
-      if(productos === 2){ //veo los precios de los vinos
+      if(productos === 2){ //SI EL PARAMETRO QUE INGRESA A LA FUNCION Y A EVALUAR ES CERVEZA: PORQUE EVALUO PRODUCTOS?
         let marca = prompt("comprar vino \n1: alamos $280 \n2: aime $200 \n3: benjamin $180")
         console.log(marca)
         if (marca == 1) {//compra vino Alamos
@@ -275,7 +276,7 @@ let stock8 = 240
           opciones = 2
         }
       }
-      if(productos === 3){ //veo los precios de los aperitivos
+      if(productos === 3){ //SI EL PARAMETRO QUE INGRESA A LA FUNCION Y A EVALUAR ES CERVEZA: PORQUE EVALUO PRODUCTOS?
         let marca = prompt("comprar aperitivo \n1: fernet branca $900 \n2: campari $820 ")
         console.log(marca)
         if (marca == 1) {//compra aperitivo Branca
@@ -293,19 +294,37 @@ let stock8 = 240
       }
     }
 
+  function generarLista (arrayDeBebidas) {
+    lista = [] //siempre que arranco la funcion verifico que la lista esté vacía
+    for (let unaBebida of arrayDeBebidas) { //recorro el array para generar la lista
+      lista.push(unaBebida.producto) //pusheo
+    }
+    let producto = parseInt(prompt("comprar: \n" + lista.join("\n")))
+    //para la pre-entrega agregar condicional: que pasa si cantidad no es numero??? y si escribe un numero que no corresponde??? que tengo que hacer???
+    cantidadBebida(producto,arrayDeBebidas)
+  }
 
+  function cantidadBebida (num,arrayDeBebidas) {
+    let bebidaSeleccionada = arrayDeBebidas[num-1]
+    let cantidad = parseInt(prompt("cuantas unidades?")) //pido la cantidad
+    //para la pre-entrega agregar condicional: que pasa si cantidad no es numero??? y si escribe un numero que no corresponde??? que tengo que hacer???
+    let subTotal = cantidad*bebidaSeleccionada.precio
+    //para la pre-entrega agregar condicional: que pasa si cantidad excede stock???
+    alert("$" + subTotal)
+    return subTotal //esta variable que se returna: acumulala en alguna otra variable para obtener el TOTAL cuando el usuario toca 2 y sale del programa
+  }
 
-
-
-
-   
-
-
-
-
-
-    // function sumaIva(precio){
-    //  return  precio * 1.21
-    // }
-    // let precioTotalConImpuestos = sumaIva(total)
-    // alert("El precio total con IVA es de : " + precioTotalConImpuestos)
+  function carritoDeCompra (num) {
+    console.log(num) //verifico la entrada
+    if (num === 1) { //si es cerveza
+      generarLista(listaCervezas)
+    } else if (num === 2) { //si es vino
+      generarLista(listaVinos)
+    } else if (num === 3) { //si es aperitivo
+      generarLista(listaAperitivos)
+    } else { //sino
+      alert("no se encontró el producto, reinicie la app") //que tendria que hacer para que me vuelva a preguntar???
+      //para la pre-entrega que no se reinicie el programa
+      opciones = 2
+    }
+  }
