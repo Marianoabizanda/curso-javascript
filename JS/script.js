@@ -196,7 +196,8 @@ let stock8 = 240
    let listaAperitivos = [ aperitivoBranca, aperitivoCampari ];
     
    
-   
+    //defino un ARRAY solo para productos
+    let listaProductos = [ "Cervezas", "Vinos", "Aperitivos" ];
   
 
 
@@ -205,13 +206,28 @@ let stock8 = 240
     let productos = 0
     
     
+// ----------------------------------------------------------------------------------------------
+// Funcion para agregar tipos de bebidas nuevas
+// Array para usar dentro de menu de opciones
+    let nombresProductos = []
+
+
+    function agregarProductos(){
+      for(const producto of listaProductos){
+         nombresProductos.push(producto) 
+          }
+    }
+    
+    agregarProductos()
+
+// ----------------------------------------------------------------------------------------------
     
     // Ejecucion
     while(opciones !=2){
       opciones = parseInt(prompt("Ingrese una opcion: \n1: ver productos \n2: salir")) //dos opciones (ver productos o salir)
       console.log(opciones)
       if(opciones === 1){ //accedo a ver los productos
-        productos = parseInt(prompt("ver precios de \n1: cervezas \n2: vinos \n3: aperitivos")) //me deja ver los precios de los productos
+        productos = parseInt(prompt("ver precios de: \n" + nombresProductos.join("\n"))) //me deja ver los precios de los productos
         comprar(1)
       }
     }
@@ -282,15 +298,7 @@ let stock8 = 240
 
 
 
-    // Defino un array solo para nombres de los productos
-    let nombresCervezas = []
-
-    function agregarCervezas(){
-      for(const cerveza of listaCervezas){
-         nombresCervezas.push(cerveza.producto) 
-          }
-    }
-    agregarCervezas()
+   
 
 
 
