@@ -197,7 +197,7 @@ let stock8 = 240
     
    
     //defino un ARRAY solo para productos
-    let listaProductos = [ "Cervezas", "Vinos", "Aperitivos" ];
+    let listaProductos = [ "1: Cervezas", "2: Vinos", "3: Aperitivos" ];
   
 
 
