@@ -27,36 +27,60 @@ const aperitivo2 = new Bebida('Campari', 820, 240, 'Aperitivo')
 let listaProductos = ['Cerveza','Vino','Aperitivo']
 let listaBebidas = [cerveza1, cerveza2, cerveza3, vino1, vino2, vino3, aperitivo1, aperitivo2]
 
+
+
 while(opciones != 2) {
   opciones = parseInt(prompt("Ingrese una opcion: \n1: ver productos \n2: salir"))
   if(opciones === 1){ 
     do {    
       categoriaIngresada = (prompt('Ingrese el nombre de la categoria: \n '+listaProductos.join('\n ')))
+      cards()
       console.log(categoriaIngresada)
       productos = listaBebidas.filter(cadaBebida => cadaBebida.categoria === categoriaIngresada)
       console.log(productos)
-    } while (productos.length === 0)  
+    } 
+    while (productos.length === 0)  
     seleccionarBebida(productos)  
     cantidadBebida(producto)
+    
   }
 }
 
-if (total===0) {
+if (total===0)   {
   console.log(total)
   alert("vuelva pronto!")
 } else {
   alert("gracias por su compra!") //SI NO COMPRA NADA, DEBERÍA APRECER ESTA ALERTA, pero no logré hacerla funcionar: podras?
+    
 }
 
-function seleccionarBebida(arrayDeBebidas) {
+
+
+
+function cards(){
+  
+  for(const bebida of listaBebidas){
+
+    let card = document.createElement("div")
+
+    card.innerHTML = `<h3>${bebida.nombre}</h3>
+                      <p>$ ${bebida.precio}</p>
+                      <p> stock: ${bebida.stock} unidades</p>`
+ 
+
+    document.body.append(card)
+}
+}
+
+function seleccionarBebida(listaBebidas) {
   lista = []
-  for (let unaBebida of arrayDeBebidas) {
+  for (let unaBebida of listaBebidas) {
     lista.push(unaBebida.nombre)
   }
   do {
     nombreIngresado = prompt("Ingrese el nombre de la bebida a comprar: \n" + lista.join("\n"))
     console.log(nombreIngresado)
-    producto = arrayDeBebidas.filter(cadaBebida => cadaBebida.nombre == nombreIngresado)
+    producto = listaBebidas.filter(cadaBebida => cadaBebida.nombre == nombreIngresado)
   } while (producto.length === 0)
   producto = producto[0]
 }
