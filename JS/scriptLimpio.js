@@ -56,7 +56,6 @@ if (total===0)   {
 
 
 
-
 function cards(){
   
   for(const bebida of listaBebidas){
@@ -91,7 +90,7 @@ function cantidadBebida (bebida) {
   } while (isNaN(unidades) || unidades<0 || unidades>bebida.stock)
   let subTotal = unidades*bebida.precio
   total += subTotal
-  alert("subtotal: $ " +subTotal+ " - TOTAL: $ " +total) //fijate de poner más lindo esto
+  alert(`subtotal: $ ${subTotal} - TOTAL: $ ${total}`) //fijate de poner más lindo esto
   return subTotal
 }
 
