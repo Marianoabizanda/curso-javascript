@@ -33,7 +33,7 @@ while(opciones != 2) {
   opciones = parseInt(prompt("Ingrese una opcion: \n1: ver productos \n2: salir"))
   if(opciones === 1){ 
     do {    
-      categoriaIngresada = (prompt('Ingrese el nombre de la categoria: \n '+listaProductos.join('\n ')))
+      categoriaIngresada = (prompt('Ingrese el nombre de la categoria: \n '+listaProductos.join('\n '))).toLocaleLowerCase()
       cards()
       console.log(categoriaIngresada)
       productos = listaBebidas.filter(cadaBebida => cadaBebida.categoria === categoriaIngresada)
@@ -55,8 +55,8 @@ if (total===0)   {
 }
 
 
-
-function cards(){
+// Creo una funcion para generar cards para cada producto
+function cards(){        
   
   for(const bebida of listaBebidas){
 
@@ -66,7 +66,6 @@ function cards(){
                       <p>$ ${bebida.precio}</p>
                       <p> stock: ${bebida.stock} unidades</p>`
  
-
     document.body.append(card)
 }
 }
