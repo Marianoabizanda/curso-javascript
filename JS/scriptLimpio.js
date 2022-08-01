@@ -33,7 +33,7 @@ while(opciones != 2) {
   opciones = parseInt(prompt("Ingrese una opcion: \n1: ver productos \n2: salir"))
   if(opciones === 1){ 
     do {    
-      categoriaIngresada = (prompt('Ingrese el nombre de la categoria: \n '+listaProductos.join('\n '))).toLocaleLowerCase()
+      categoriaIngresada = (prompt('Ingrese el nombre de la categoria: \n '+listaProductos.join('\n ')))
       cards()
       console.log(categoriaIngresada)
       productos = listaBebidas.filter(cadaBebida => cadaBebida.categoria === categoriaIngresada)
