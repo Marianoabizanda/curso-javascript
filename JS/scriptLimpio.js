@@ -11,7 +11,7 @@ class Bebida {
       this.nombre = producto,
       this.precio = precio,
       this.stock = stock
-      this.categoria = categoria
+      this.categoria = categoria //agregar la propiedad foto: asi también la podes renderizar dinamicamente
   }
 }
 
@@ -54,20 +54,17 @@ if (total===0)   {
     
 }
 
-
+//PRESTAR ATENCION A LA IDENTACION/ORDEN DEL CODIGO
+//EN UN ARCHIVO CODIGO LIMPIO Y EN OTRO COMENTARIOS PORFA
 // Creo una funcion para generar cards para cada producto
-function cards(){        
-  
+function cards(){  
   for(const bebida of listaBebidas){
-
     let card = document.createElement("div")
-
     card.innerHTML = `<h3>${bebida.nombre}</h3>
                       <p>$ ${bebida.precio}</p>
                       <p> stock: ${bebida.stock} unidades</p>`
- 
     document.body.append(card)
-}
+  }
 }
 
 function seleccionarBebida(listaBebidas) {
