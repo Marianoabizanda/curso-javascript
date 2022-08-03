@@ -1,0 +1,57 @@
+@import '../base/extends';
+
+/* HTML SECCION PRODUCTOS */
+
+
+.contenedor {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    .banner {
+        background-color: nth($colores, 4);
+        text-align: center;
+        width: 19%; 
+        .btn{
+            width: 95%;
+        }
+        a{
+            color: nth($colores, 7);
+        }
+    }
+
+    .contenedor-products {
+        width: 76%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        text-align: center;
+        .title-product {
+            display: block;
+            width: 100%;
+            color: nth($colores, 8);                         
+        }
+        
+
+        .contenedor-card {
+            @extend %flex-center;
+            gap: 20px;
+               .card {
+                width: 240px;
+                margin-bottom: 20px;
+                cursor: pointer;
+                border: 1px solid black;                                    
+                #img-card {
+                    width: 200px;             
+                }
+                #info{
+                    color: nth($colores, 8);
+                    font-family: 'PT Serif', serif;
+                }
+               
+               }
+        }
+    
+    }
+   
+}
