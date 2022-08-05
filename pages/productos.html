@@ -85,13 +85,23 @@
                 <li class="btn btn-primary"><a href="#Novedades">Novedades</a></li>
                 
             </ul>
-                            
+            
+            <div>
+                <h2>Carrito</h2>
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total"></span></p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            </div>
+
         </div>
 
 
 
 
-        <div class="contenedor-products">
+        <div class="contenedor-products" id="items">
 
             <div class="title-product" id="Cervezas">
                 <h2 >CERVEZAS</h2>
@@ -106,6 +116,7 @@
                 <div class="text-info">
                     <h3 id="info">Andes Origen Rubia</h3>
                 </div>
+                <button id="buton">Agregar</button>
             </div>
 
             <div class="card">
@@ -521,6 +532,7 @@
       
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- <script src="../JS/scriptLimpio.js"></script> -->
+    <script src="../JS/carrito.js"></script>
 </body>
 </html>

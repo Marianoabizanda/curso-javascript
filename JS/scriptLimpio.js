@@ -29,65 +29,75 @@ let listaBebidas = [cerveza1, cerveza2, cerveza3, vino1, vino2, vino3, aperitivo
 
 
 
-while(opciones != 2) {
-  opciones = parseInt(prompt("Ingrese una opcion: \n1: ver productos \n2: salir"))
-  if(opciones === 1){ 
-    do {    
-      categoriaIngresada = (prompt('Ingrese el nombre de la categoria: \n '+listaProductos.join('\n ')))
-      cards()
-      console.log(categoriaIngresada)
-      productos = listaBebidas.filter(cadaBebida => cadaBebida.categoria === categoriaIngresada)
-      console.log(productos)
-    } 
-    while (productos.length === 0)  
-    seleccionarBebida(productos)  
-    cantidadBebida(producto)
+// while(opciones != 2) {
+//   opciones = parseInt(prompt("Ingrese una opcion: \n1: ver productos \n2: salir"))
+//   if(opciones === 1){ 
+//     do {    
+//       categoriaIngresada = (prompt('Ingrese el nombre de la categoria: \n '+listaProductos.join('\n ')))
+//       cards()
+//       console.log(categoriaIngresada)
+//       productos = listaBebidas.filter(cadaBebida => cadaBebida.categoria === categoriaIngresada)
+//       console.log(productos)
+//     } 
+//     while (productos.length === 0)  
+//     seleccionarBebida(productos)  
+//     cantidadBebida(producto)
     
-  }
-}
+//   }
+// }
 
-if (total===0)   {
-  console.log(total)
-  alert("vuelva pronto!")
-} else {
-  alert("gracias por su compra!") //SI NO COMPRA NADA, DEBERÍA APRECER ESTA ALERTA, pero no logré hacerla funcionar: podras?
+// if (total===0)   {
+//   console.log(total)
+//   alert("vuelva pronto!")
+// } else {
+//   alert("gracias por su compra!") //SI NO COMPRA NADA, DEBERÍA APRECER ESTA ALERTA, pero no logré hacerla funcionar: podras?
     
-}
+// }
 
 //PRESTAR ATENCION A LA IDENTACION/ORDEN DEL CODIGO
 //EN UN ARCHIVO CODIGO LIMPIO Y EN OTRO COMENTARIOS PORFA
 // Creo una funcion para generar cards para cada producto
-function cards(){  
-  for(const bebida of listaBebidas){
-    let card = document.createElement("div")
-    card.innerHTML = `<h3>${bebida.nombre}</h3>
-                      <p>$ ${bebida.precio}</p>
-                      <p> stock: ${bebida.stock} unidades</p>`
-    document.body.append(card)
-  }
-}
+// function cards(){  
+//   for(const bebida of listaBebidas){
+//     let card = document.createElement("div")
+//     card.innerHTML = `<h3>${bebida.nombre}</h3>
+//                       <p>$ ${bebida.precio}</p>
+//                       <p> stock: ${bebida.stock} unidades</p>`
+//     document.body.append(card)
+//   }
+// }
 
-function seleccionarBebida(listaBebidas) {
-  lista = []
-  for (let unaBebida of listaBebidas) {
-    lista.push(unaBebida.nombre)
-  }
-  do {
-    nombreIngresado = prompt("Ingrese el nombre de la bebida a comprar: \n" + lista.join("\n"))
-    console.log(nombreIngresado)
-    producto = listaBebidas.filter(cadaBebida => cadaBebida.nombre == nombreIngresado)
-  } while (producto.length === 0)
-  producto = producto[0]
-}
+// function seleccionarBebida(listaBebidas) {
+//   lista = []
+//   for (let unaBebida of listaBebidas) {
+//     lista.push(unaBebida.nombre)
+//   }
+//   do {
+//     nombreIngresado = prompt("Ingrese el nombre de la bebida a comprar: \n" + lista.join("\n"))
+//     console.log(nombreIngresado)
+//     producto = listaBebidas.filter(cadaBebida => cadaBebida.nombre == nombreIngresado)
+//   } while (producto.length === 0)
+//   producto = producto[0]
+// }
 
-function cantidadBebida (bebida) {
-  do {
-    unidades = parseInt(prompt("cuantas unidades?"))
-  } while (isNaN(unidades) || unidades<0 || unidades>bebida.stock)
-  let subTotal = unidades*bebida.precio
-  total += subTotal
-  alert(`subtotal: $ ${subTotal} - TOTAL: $ ${total}`) //fijate de poner más lindo esto
-  return subTotal
-}
+// function cantidadBebida (bebida) {
+//   do {
+//     unidades = parseInt(prompt("cuantas unidades?"))
+//   } while (isNaN(unidades) || unidades<0 || unidades>bebida.stock)
+//   let subTotal = unidades*bebida.precio
+//   total += subTotal
+//   alert(`subtotal: $ ${subTotal} - TOTAL: $ ${total}`) //fijate de poner más lindo esto
+//   return subTotal
+// }
 
-//PD: no contemplé pasar a minusculas TODO por si el usuario teclea cualquier cosa que no sea exactamente igual al nombre o categoria: como harias???
+
+
+
+let boton = document.getElementById("buton")
+
+boton.addEventListener("click", clickAgregar)
+
+function clickAgregar(){
+  
+  console.log("click")
+}
