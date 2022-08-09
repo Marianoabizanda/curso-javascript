@@ -1,4 +1,4 @@
-.container-compras .title-compras h2, .contenedor .contenedor-products .contenedor-card, .footer-container .copyright, .footer-container .footer-redes, .main-container .map .title-map, .main-container .promos, .main-container .carousel, .header-container .logo-nav, .header-container .mensaje-container {
+.container-compras .title-compras h2, .footer-container .copyright, .footer-container .footer-redes, .main-container .map .title-map, .main-container .promos, .main-container .carousel, .header-container .logo-nav, .header-container .mensaje-container {
   display: flex;
   justify-content: center;
 }
@@ -13,7 +13,7 @@ body {
 }
 
 /* Inicio del Header y nav  */
-.container-compras .title-compras h2, .contenedor .contenedor-products .contenedor-card, .footer-container .copyright, .footer-container .footer-redes, .main-container .map .title-map, .main-container .promos, .main-container .carousel, .header-container .logo-nav, .header-container .mensaje-container {
+.container-compras .title-compras h2, .footer-container .copyright, .footer-container .footer-redes, .main-container .map .title-map, .main-container .promos, .main-container .carousel, .header-container .logo-nav, .header-container .mensaje-container {
   display: flex;
   justify-content: center;
 }
@@ -51,7 +51,7 @@ body {
 }
 
 /* Inicio del main  */
-.container-compras .title-compras h2, .contenedor .contenedor-products .contenedor-card, .footer-container .copyright, .footer-container .footer-redes, .main-container .map .title-map, .main-container .promos, .main-container .carousel, .header-container .mensaje-container, .header-container .logo-nav {
+.container-compras .title-compras h2, .footer-container .copyright, .footer-container .footer-redes, .main-container .map .title-map, .main-container .promos, .main-container .carousel, .header-container .mensaje-container, .header-container .logo-nav {
   display: flex;
   justify-content: center;
 }
@@ -130,7 +130,7 @@ body {
 }
 
 /*Inicio de footer*/
-.container-compras .title-compras h2, .contenedor .contenedor-products .contenedor-card, .footer-container .copyright, .footer-container .footer-redes, .header-container .mensaje-container, .header-container .logo-nav, .main-container .carousel, .main-container .promos, .main-container .map .title-map {
+.container-compras .title-compras h2, .footer-container .copyright, .footer-container .footer-redes, .header-container .mensaje-container, .header-container .logo-nav, .main-container .carousel, .main-container .promos, .main-container .map .title-map {
   display: flex;
   justify-content: center;
 }
@@ -182,7 +182,7 @@ body {
   font-size: 15px;
 }
 
-.container-compras .title-compras h2, .contenedor .contenedor-products .contenedor-card, .header-container .mensaje-container, .header-container .logo-nav, .main-container .carousel, .main-container .promos, .main-container .map .title-map, .footer-container .footer-redes, .footer-container .copyright {
+.container-compras .title-compras h2, .header-container .mensaje-container, .header-container .logo-nav, .main-container .carousel, .main-container .promos, .main-container .map .title-map, .footer-container .footer-redes, .footer-container .copyright {
   display: flex;
   justify-content: center;
 }
@@ -194,7 +194,7 @@ body {
   margin-bottom: 20px;
 }
 .contenedor .banner {
-  background-color: rgb(36, 30, 30);
+  background-color: white;
   text-align: center;
   width: 19%;
 }
@@ -205,7 +205,7 @@ body {
   color: white;
 }
 .contenedor .contenedor-products {
-  width: 76%;
+  width: 82%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -216,21 +216,11 @@ body {
   width: 100%;
   color: black;
 }
-.contenedor .contenedor-products .contenedor-card {
-  gap: 20px;
+.contenedor .contenedor-products .card {
+  width: 31%;
 }
-.contenedor .contenedor-products .contenedor-card .card {
-  width: 240px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  border: 1px solid black;
-}
-.contenedor .contenedor-products .contenedor-card .card #img-card {
-  width: 200px;
-}
-.contenedor .contenedor-products .contenedor-card .card #info {
-  color: black;
-  font-family: "PT Serif", serif;
+.contenedor .contenedor-products .card .imagen {
+  width: 100%;
 }
 
 /* HTML SECCION CONTACTO */
@@ -259,7 +249,7 @@ body {
   height: 100px;
 }
 
-.container-compras .title-compras h2, .header-container .mensaje-container, .header-container .logo-nav, .main-container .carousel, .main-container .promos, .main-container .map .title-map, .footer-container .footer-redes, .footer-container .copyright, .contenedor .contenedor-products .contenedor-card {
+.container-compras .title-compras h2, .header-container .mensaje-container, .header-container .logo-nav, .main-container .carousel, .main-container .promos, .main-container .map .title-map, .footer-container .footer-redes, .footer-container .copyright {
   display: flex;
   justify-content: center;
 }
@@ -304,7 +294,7 @@ body {
   color: black;
 }
 
-.header-container .mensaje-container, .header-container .logo-nav, .main-container .carousel, .main-container .promos, .main-container .map .title-map, .footer-container .footer-redes, .footer-container .copyright, .contenedor .contenedor-products .contenedor-card, .container-compras .title-compras h2 {
+.header-container .mensaje-container, .header-container .logo-nav, .main-container .carousel, .main-container .promos, .main-container .map .title-map, .footer-container .footer-redes, .footer-container .copyright, .container-compras .title-compras h2 {
   display: flex;
   justify-content: center;
 }
@@ -433,13 +423,5 @@ body {
     height: 25% !important;
   }
 }
-
-
-#buton{
-  width: 210px;
-  height: 30px;
-}
-
-
 
 /*# sourceMappingURL=proyecto-2.css.map */

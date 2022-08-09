@@ -9,7 +9,7 @@
     margin-bottom: 20px;
 
     .banner {
-        background-color: nth($colores, 4);
+        background-color: nth($colores, 7);
         text-align: center;
         width: 19%; 
         .btn{
@@ -21,7 +21,7 @@
     }
 
     .contenedor-products {
-        width: 76%;
+        width: 82%;
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
@@ -33,24 +33,32 @@
         }
         
 
-        .contenedor-card {
-            @extend %flex-center;
-            gap: 20px;
-               .card {
-                width: 240px;
-                margin-bottom: 20px;
-                cursor: pointer;
-                border: 1px solid black;                                    
-                #img-card {
-                    width: 200px;             
-                }
-                #info{
-                    color: nth($colores, 8);
-                    font-family: 'PT Serif', serif;
-                }
-               
-               }
+        .card{
+            width: 31%;
+            .imagen{
+                width: 100%;
+            }
         }
+        
+
+        // .contenedor-card {
+        //     @extend %flex-center;
+        //     gap: 20px;
+        //        .card {
+        //         width: 240px;
+        //         margin-bottom: 20px;
+        //         cursor: pointer;
+        //         border: 1px solid black;                                    
+        //         #img-card {
+        //             width: 200px;             
+        //         }
+        //         #info{
+        //             color: nth($colores, 8);
+        //             font-family: 'PT Serif', serif;
+        //         }
+               
+        //        }
+        // }
     
     }
    
