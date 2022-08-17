@@ -123,6 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         carrito.splice(indice, 1)
         actualizarCarrito()
+
+        // NO ME TOMA EL BOTON DE ELIMINAR PRODUCTO CADA VEZ QUE SE AGREGA AL CARRITO
         
     }
 
@@ -140,19 +142,19 @@ document.addEventListener('DOMContentLoaded', () => {
             <p> ${prod.nombre}</p>
             <p> Precio: ${prod.precio}</p>
             <p> Cantidad: ${prod.stock}</p>
-            <button onclick = "eliminarDelCarrito(${prod.id})" class="boton-eliminar btn btn-danger mx-1">x</button>
+            <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar btn btn-danger mx-1">x</button>
             `
             
             contenedorCarrito.appendChild(div)
         })
-
+       
 
     }
 
 
 
     
-
+    
 
 
 
