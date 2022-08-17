@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     let carrito = [];
 
-    const DOMitems = document.getElementById('items');
-    const DOMcarrito = document.querySelector('#carrito');
-    const DOMtotal = document.querySelector('#total');
-    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+    // const DOMitems = document.getElementById('items');
+    // const DOMtotal = document.querySelector('#total');
+    // const DOMbotonVaciar = document.querySelector('#boton-vaciar');
 
     const listaDeCervezas = [
         {
@@ -59,153 +58,297 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
     
+    const Domitems = document.getElementById ("items")
+    const contenedorCarrito = document.getElementById ('carrito')
 
 
 
-     function renderizarProductos (){
+    const botonVaciar = document.getElementById("boton-vaciar")
+    botonVaciar.addEventListener("click", ()=>{
+        carrito.length = 0
+        actualizarCarrito()
+    })
+    
+    
 
-        listaDeCervezas.forEach((info) =>{
-            const miNodo = document.createElement('div');
-            miNodo.classList.add('card', 'col-sm-4');
 
-            const miNodoCardBody = document.createElement('div');
-            miNodoCardBody.classList.add('card-body');
 
-            const miNodoTitle = document.createElement('h5');
-            miNodoTitle.classList.add('card-title');
-            miNodoTitle.innerText = info.nombre;
 
-            const miNodoPrecio = document.createElement('p');
-            miNodoPrecio.classList.add('card-text');
-            miNodoPrecio.innerText = `$${info.precio}`;
-            //Stock
-            const miNodoStock = document.createElement('p');
-            miNodoStock.classList.add('card-text');
-            miNodoStock.innerText = `Stock: ${info.stock}`;
 
-            const miNodoImagen = document.createElement('img')
-            miNodoImagen.classList.add('imagen')
-            miNodoImagen.setAttribute('src', info.img);
+    listaDeCervezas.forEach((producto) => {
 
-            const miNodoBoton = document.createElement('button');
-            miNodoBoton.classList.add('btn', 'btn-primary');
-            miNodoBoton.innerText = '+';
-            miNodoBoton.setAttribute('marcador', info.id);
-            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
-            // Insertamos
-            miNodoCardBody.append(miNodoTitle);
-            miNodoCardBody.append(miNodoPrecio);
-            miNodoCardBody.append(miNodoStock);
-            miNodoCardBody.append(miNodoImagen);
-            miNodoCardBody.append(miNodoBoton);
-            miNodo.append(miNodoCardBody);
-            DOMitems.append(miNodo);
-        
+        const div = document.createElement('div')
+        div.classList.add('card')
+        div.innerHTML = `
+
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">$${producto.precio}</p>
+            <p class="card-text">stock: ${producto.stock}</p>
+            <img src=${producto.img} id="img-card">
+            <button id="agregar${producto.id}" class="boton-agregar">Agregar</button>
             
-        });
+        `
+        Domitems.appendChild(div)
+
+
+
+        const boton = document.getElementById(`agregar${producto.id}`)
+
+        boton.addEventListener('click', () => {
+            agregarAlCarrito(producto.id)
+
+    })
+    })
+
+
+    
+    // funcion para agregar productos al carrito
+    const agregarAlCarrito = (prodId) => {
+        const item = listaDeCervezas.find((prod) => prod.id === prodId)
+        carrito.push(item)
+        actualizarCarrito()
+        console.log(carrito)
        
-     }
-     
-     function anyadirProductoAlCarrito(e) {
-        // Anyadimos el Nodo a nuestro carrito
-        carrito.push(e.target.getAttribute('marcador'))
-        // Actualizamos el carrito 
-        renderizarCarrito();
-        // Actualizamos el LocalStorage
-        guardarCarritoEnLocalStorage();
     }
 
-    function renderizarCarrito(){
 
-        DOMcarrito.innerText = '';
 
-        const carritoSinDuplicados = [...new Set(carrito)];
+    
 
-        carritoSinDuplicados.forEach((item)=>{
-            
-            const miItem = listaDeCervezas.filter((itemBaseDatos) => {
+    const eliminarDelCarrito = (prodId) =>{
 
-                return itemBaseDatos.id === parseInt(item);
-            });
-             
-             const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-              
-                return itemId === item ? total += 1 : total;
-            }, 0);
-            
-            // Creo el nodo del item del carrito
-            const miNodo = document.createElement('li');
-            miNodo.classList.add('list-group-item', 'text-right', 'mx-1');
-            miNodo.innerText = `${numeroUnidadesItem} x ${miItem[0].nombre} - $${miItem[0].precio}`;
-          
-            const miBoton = document.createElement('button');
-            miBoton.classList.add('btn', 'btn-danger', 'mx-1');
-            miBoton.innerText = 'X';
-            miBoton.style.marginLeft = '1rem';
-            miBoton.dataset.item = item;
-            miBoton.addEventListener('click', borrarItemCarrito);
-           
-            miNodo.appendChild(miBoton);
-            DOMcarrito.appendChild(miNodo);
-        });
+        const item = carrito.find((prod) => prod.id === prodId)
+
+        const indice = carrito.indexOf(item)
         
-        DOMtotal.innerText = calcularTotal();
+        carrito.splice(indice, 1)
+        actualizarCarrito()
+        
     }
 
 
-    function borrarItemCarrito(e) {
-        // Obtenemos el producto ID que hay en el boton pulsado
-        const id = e.target.dataset.item;
-        // Borramos todos los productos
-        carrito = carrito.filter((carritoId) => {
-            return carritoId !== id;
-        });
-        // volvemos a renderizar
-        renderizarCarrito();
-        // Actualizamos el LocalStorage
-        guardarCarritoEnLocalStorage();
+
+
+
+    const actualizarCarrito = () => {
+        contenedorCarrito.innerHTML = ""
+
+        carrito.forEach((prod) =>{
+            const div = document.createElement('div')
+            div.className = ('productoEnCarrito')
+            div.innerHTML = `
+            <p> ${prod.nombre}</p>
+            <p> Precio: ${prod.precio}</p>
+            <p> Cantidad: ${prod.stock}</p>
+            <button onclick = "eliminarDelCarrito(${prod.id})" class="boton-eliminar btn btn-danger mx-1">x</button>
+            `
+            
+            contenedorCarrito.appendChild(div)
+        })
+
 
     }
 
-    function calcularTotal() {
-        // Recorremos el array del carrito 
-        return carrito.reduce((total, item) => {
-            // De cada elemento obtenemos su precio
-            const miItem = listaDeCervezas.filter((itemBaseDatos) => {
-                return itemBaseDatos.id === parseInt(item);
-            });
-            // Los sumamos al total
-            return total + miItem[0].precio;
-        }, 0).toFixed(2);
-    }
 
-    function vaciarCarrito() {
-        // Limpiamos los productos guardados
-        carrito = [];
-        // Renderizamos los cambios
-        renderizarCarrito();
-        // Borra LocalStorage
-        localStorage.removeItem('carrito');
 
-    }
+    
 
-    function guardarCarritoEnLocalStorage () {
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-    }
 
-    function cargarCarritoDeLocalStorage () {
-        // ¿Existe un carrito previo guardado en LocalStorage?
-        if (localStorage.getItem('carrito') !== null) {
-            // Carga la información
-            carrito = JSON.parse(localStorage.getItem('carrito'));
-        }
-    }
 
-    // Eventos
-    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+//      function renderizarProductos (){
+
+//         listaDeCervezas.forEach((info) =>{
+//             const miNodo = document.createElement('div');
+//             miNodo.classList.add('card', 'col-sm-4');
+
+//             const miNodoCardBody = document.createElement('div');
+//             miNodoCardBody.classList.add('card-body');
+
+//             const miNodoTitle = document.createElement('h5');
+//             miNodoTitle.classList.add('card-title');
+//             miNodoTitle.innerText = info.nombre;
+
+//             const miNodoPrecio = document.createElement('p');
+//             miNodoPrecio.classList.add('card-text');
+//             miNodoPrecio.innerText = `$${info.precio}`;
+//             //Stock
+//             const miNodoStock = document.createElement('p');
+//             miNodoStock.classList.add('card-text');
+//             miNodoStock.innerText = `Stock: ${info.stock}`;
+
+//             const miNodoImagen = document.createElement('img')
+//             miNodoImagen.classList.add('imagen')
+//             miNodoImagen.setAttribute('src', info.img);
+
+//             const miNodoBoton = document.createElement('button');
+//             miNodoBoton.classList.add('btn', 'btn-primary');
+//             miNodoBoton.innerText = '+';
+//             miNodoBoton.setAttribute('marcador', info.id);
+//             miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+//             // Insertamos
+//             miNodoCardBody.append(miNodoTitle);
+//             miNodoCardBody.append(miNodoPrecio);
+//             miNodoCardBody.append(miNodoStock);
+//             miNodoCardBody.append(miNodoImagen);
+//             miNodoCardBody.append(miNodoBoton);
+//             miNodo.append(miNodoCardBody);
+//             DOMitems.append(miNodo);
+        
+            
+//         });
+       
+//      }
+     
+//      function anyadirProductoAlCarrito(e) {
+//         // Anyadimos el Nodo a nuestro carrito
+//         carrito.push(e.target.getAttribute('marcador'))
+//         // Actualizamos el carrito 
+//         renderizarCarrito();
+//         // Actualizamos el LocalStorage
+//         guardarCarritoEnLocalStorage();
+//     }
+
+//     function renderizarCarrito(){
+
+//         DOMcarrito.innerText = '';
+
+//         const carritoSinDuplicados = [...new Set(carrito)];
+
+//         carritoSinDuplicados.forEach((item)=>{
+            
+//             const miItem = listaDeCervezas.filter((itemBaseDatos) => {
+
+//                 return itemBaseDatos.id === parseInt(item);
+//             });
+             
+//              const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+              
+//                 return itemId === item ? total += 1 : total;
+//             }, 0);
+            
+//             // Creo el nodo del item del carrito
+//             const miNodo = document.createElement('li');
+//             miNodo.classList.add('list-group-item', 'text-right', 'mx-1');
+//             miNodo.innerText = `${numeroUnidadesItem} x ${miItem[0].nombre} - $${miItem[0].precio}`;
+          
+//             const miBoton = document.createElement('button');
+//             miBoton.classList.add('btn', 'btn-danger', 'mx-1');
+//             miBoton.innerText = 'X';
+//             miBoton.style.marginLeft = '1rem';
+//             miBoton.dataset.item = item;
+//             miBoton.addEventListener('click', borrarItemCarrito);
+           
+//             miNodo.appendChild(miBoton);
+//             DOMcarrito.appendChild(miNodo);
+//         });
+        
+//         DOMtotal.innerText = calcularTotal();
+//     }
+
+
+//     function borrarItemCarrito(e) {
+//         // Obtenemos el producto ID que hay en el boton pulsado
+//         const id = e.target.dataset.item;
+//         // Borramos todos los productos
+//         carrito = carrito.filter((carritoId) => {
+//             return carritoId !== id;
+//         });
+//         // volvemos a renderizar
+//         renderizarCarrito();
+//         // Actualizamos el LocalStorage
+//         guardarCarritoEnLocalStorage();
+
+//     }
+
+//     function calcularTotal() {
+//         // Recorremos el array del carrito 
+//         return carrito.reduce((total, item) => {
+//             // De cada elemento obtenemos su precio
+//             const miItem = listaDeCervezas.filter((itemBaseDatos) => {
+//                 return itemBaseDatos.id === parseInt(item);
+//             });
+//             // Los sumamos al total
+//             return total + miItem[0].precio;
+//         }, 0).toFixed(2);
+//     }
+
+//     function vaciarCarrito() {
+//         // Limpiamos los productos guardados
+//         carrito = [];
+//         // Renderizamos los cambios
+//         renderizarCarrito();
+//         // Borra LocalStorage
+//         localStorage.removeItem('carrito');
+
+//     }
+
+//     function guardarCarritoEnLocalStorage () {
+//         localStorage.setItem('carrito', JSON.stringify(carrito));
+//     }
+
+//     function cargarCarritoDeLocalStorage () {
+//         // ¿Existe un carrito previo guardado en LocalStorage?
+//         if (localStorage.getItem('carrito') !== null) {
+//             // Carga la información
+//             carrito = JSON.parse(localStorage.getItem('carrito'));
+//         }
+//     }
+
+//     // Eventos
+//     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
     
     
-    cargarCarritoDeLocalStorage();
-    renderizarProductos();
-    renderizarCarrito();
+//     cargarCarritoDeLocalStorage();
+//     renderizarProductos();
+//     renderizarCarrito();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
