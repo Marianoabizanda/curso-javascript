@@ -113,6 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
         // Actualizamos el LocalStorage
         guardarCarritoEnLocalStorage();
+
+        Toastify({
+            text: "Se agrego un producto al carrito",
+            className: 'btn btn-primary',
+            gravity: 'top',
+            position: "right",
+        }).showToast();
     }
 
     function renderizarCarrito(){
@@ -164,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
         // Actualizamos el LocalStorage
         guardarCarritoEnLocalStorage();
+       
 
     }
 
@@ -186,6 +194,13 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
         // Borra LocalStorage
         localStorage.removeItem('carrito');
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Su carrito quedó vacio!',
+            timer: 3000
+          })
 
     }
 
