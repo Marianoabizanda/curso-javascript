@@ -64,17 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
         <p class="card-text">$${producto.precio}</p>
         <p class="card-text">stock: ${producto.stock}</p>
         <img src=${producto.img} id="img-card">
-        <button id='${producto.id}' class="boton-agregar">Agregar</button>
-    `
+        <button id='${producto.id}' class="boton-agregar">Agregar</button>`
             
-            domItems.append(card)
-         }    
-
+        domItems.append(card);
+       
        }          
     
-        fetch('data.json')
-        .then((response) => response.json())
-        .then((data) => render (data))
+    }    
+
+     fetch("../data.json")
+           .then((response) => response.json())
+           .then((data) => render(data))
 
     })
 
