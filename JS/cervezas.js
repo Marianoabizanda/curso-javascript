@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // const DOMtotal = document.querySelector('#total');
     // carrito = [];
 
+      
 
        function render(lista){
 
@@ -72,9 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     }    
 
-     fetch("../data.json")
-           .then((response) => response.json())
-           .then((data) => render(data))
+         import cors from 'cors';
+       server.app.use( cors({ origin: true, credentials: true  }) );
+
+        fetch("../data.json")
+            .then((response) => response.json())
+            .then((data) => render(data))
 
     })
 
