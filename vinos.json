@@ -1,0 +1,51 @@
+[
+    {
+        "id": 7,
+        "nombre": "Alamos-Cabernet",
+        "precio": 230,
+        "stock": 300,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__0018-ALAMOS-CABERNET-300x300(1).webp"
+    },
+    {
+        "id": 8,
+        "nombre": "Alamos-Chardonnay",
+        "precio": 250,
+        "stock": 220 , 
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__0019-ALAMOS-CHARDONNAY-300x300.webp"
+    },
+    {
+        "id": 9,
+        "nombre": "Alamos- Malbec",
+        "precio": 240,
+        "stock": 370,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__0020-ALAMOS-MALBEC-300x300.webp"
+    },
+    {
+        "id": 10,
+        "nombre": "Aime Red Blend",
+        "precio": 270,
+        "stock": 450,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__Aime-Red-Blend-300x300.webp"
+    },
+    {
+        "id": 11,
+        "nombre": "Alambrado- Cabernet",
+        "precio": 300,
+        "stock": 400,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__Alambrado-Cabernet-Sauvignon-300x300.webp"
+    },
+    {
+        "id": 12,
+        "nombre": "Cafayate",
+        "precio": 200,
+        "stock": 305,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__Cafayate 3016-300x300.webp"
+    }
+    
+]

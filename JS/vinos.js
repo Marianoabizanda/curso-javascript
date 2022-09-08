@@ -1,70 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let carrito = [];
 
-    const DOMitems = document.getElementById('items');
-    const DOMcarrito = document.querySelector('#carrito');
+    
+    const DOMitems = document.getElementById("items");
+    const DOMcarrito = document.getElementById('carrito');
+    const DOMbotonVaciar = document.getElementById("boton-vaciar");
     const DOMtotal = document.querySelector('#total');
-    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-
-    const listaDeVinos = [
-        {
-            id: 7,
-            nombre: "Alamos-Cabernet",
-            precio: 230,
-            stock: 300,
-            categoria: "vino",
-            img: "../images/images vinos/AnyConv.com__0018-ALAMOS-CABERNET-300x300(1).webp"
-        },
-        {
-            id: 8,
-            nombre: "Alamos-Chardonnay",
-            precio: 250,
-            stock: 220 , 
-            categoria: "vino",
-            img: "../images/images vinos/AnyConv.com__0019-ALAMOS-CHARDONNAY-300x300.webp"
-        },
-        {
-            id: 9,
-            nombre: "Alamos- Malbec",
-            precio: 240,
-            stock: 370,
-            categoria: "vino",
-            img: "../images/images vinos/AnyConv.com__0020-ALAMOS-MALBEC-300x300.webp"
-        },
-        {
-            id: 10,
-            nombre: "Aime Red Blend",
-            precio: 270,
-            stock: 450,
-            categoria: "vino",
-            img: "../images/images vinos/AnyConv.com__Aime-Red-Blend-300x300.webp"
-        },
-        {
-            id: 11,
-            nombre: "Alambrado- Cabernet",
-            precio: 300,
-            stock: 400,
-            categoria: "vino",
-            img: "../images/images vinos/AnyConv.com__Alambrado-Cabernet-Sauvignon-300x300.webp"
-        },
-        {
-            id: 12,
-            nombre: "Cafayate",
-            precio: 200,
-            stock: 305,
-            categoria: "vino",
-            img: "../images/images vinos/AnyConv.com__Cafayate 3016-300x300.webp"
-        },
-        
-    ]
+    carrito = [];
 
     
 
+    async function listaDeProductos() {
+        const resp = await fetch("../vinos.json")
+        const data = await resp.json()
+        listaDeProductos = data;
+        renderizarProductos();
+    }
+
+    listaDeProductos()  
 
 
-     function renderizarProductos (){
 
-        listaDeVinos.forEach((info) =>{
+    function renderizarProductos (){
+
+        listaDeProductos.forEach((info) =>{
             const miNodo = document.createElement('div');
             miNodo.classList.add('card', 'col-sm-4');
 
@@ -103,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
             
         });
-       
-     }
-     
-     function anyadirProductoAlCarrito(e) {
+    
+    }
+    
+    function anyadirProductoAlCarrito(e) {
         // Anyadimos el Nodo a nuestro carrito
         carrito.push(e.target.getAttribute('marcador'))
         // Actualizamos el carrito 
@@ -130,13 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         carritoSinDuplicados.forEach((item)=>{
             
-            const miItem = listaDeVinos.filter((itemBaseDatos) => {
+            const miItem = listaDeProductos.filter((itemBaseDatos) => {
 
                 return itemBaseDatos.id === parseInt(item);
             });
-             
-             const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-              
+            
+            const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+            
                 return itemId === item ? total += 1 : total;
             }, 0);
             
@@ -144,14 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const miNodo = document.createElement('li');
             miNodo.classList.add('list-group-item', 'text-right', 'mx-1');
             miNodo.innerText = `${numeroUnidadesItem} x ${miItem[0].nombre} - $${miItem[0].precio}`;
-          
+        
             const miBoton = document.createElement('button');
             miBoton.classList.add('btn', 'btn-danger', 'mx-1');
             miBoton.innerText = 'X';
             miBoton.style.marginLeft = '1rem';
             miBoton.dataset.item = item;
             miBoton.addEventListener('click', borrarItemCarrito);
-           
+        
             miNodo.appendChild(miBoton);
             DOMcarrito.appendChild(miNodo);
         });
@@ -171,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderizarCarrito();
         // Actualizamos el LocalStorage
         guardarCarritoEnLocalStorage();
-       
+    
 
     }
 
@@ -179,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Recorremos el array del carrito 
         return carrito.reduce((total, item) => {
             // De cada elemento obtenemos su precio
-            const miItem = listaDeVinos.filter((itemBaseDatos) => {
+            const miItem = listaDeProductos.filter((itemBaseDatos) => {
                 return itemBaseDatos.id === parseInt(item);
             });
             // Los sumamos al total
@@ -188,21 +146,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function vaciarCarrito() {
-        // Limpiamos los productos guardados
-        carrito = [];
-        // Renderizamos los cambios
-        renderizarCarrito();
-        // Borra LocalStorage
-        localStorage.removeItem('carrito');
-
         Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Su carrito quedó vacio!',
-            timer: 3000
-          })
+            title: 'Quieres vaciar tu carrito?',
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Conservar',
+            denyButtonText: `Eliminar`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Buena elección!', '', 'success')
+            } else if (result.isDenied) {
+                Swal.fire('Te esperamos nuevamente!', '', 'info');
 
+                // Borramos todos los productos
+
+                // Limpiamos los productos guardados
+                carrito = [];
+                // Renderizamos los cambios
+                renderizarCarrito();
+                // Borra LocalStorage
+                localStorage.removeItem('carrito');
+                localStorage.clear();
+                //borro del storage tambien
+            }
+        })
     }
+    
 
     function guardarCarritoEnLocalStorage () {
         localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -217,10 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Eventos
+
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
-    
-    
+
+
     cargarCarritoDeLocalStorage();
     renderizarProductos();
     renderizarCarrito();
-});
+
+    });
