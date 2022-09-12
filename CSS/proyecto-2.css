@@ -428,14 +428,13 @@ body {
 
 
 #sidebar {
-  width: 20%;
   padding: 10px;
   margin: 0;
-  float: right;
 }
 
-.buttonsSidebar{
-  display: inline ;
+.buttonsSidebar li{
+  display: inline;
+  
 }
 
 .botonSideBar {
@@ -488,3 +487,4 @@ body {
 #title-carrito{
   width: 1 rem;
 }
+
