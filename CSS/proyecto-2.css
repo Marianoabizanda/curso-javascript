@@ -425,3 +425,66 @@ body {
 }
 
 /*# sourceMappingURL=proyecto-2.css.map */
+
+
+#sidebar {
+  width: 20%;
+  padding: 10px;
+  margin: 0;
+  float: right;
+}
+
+.buttonsSidebar{
+  display: inline ;
+}
+
+.botonSideBar {
+    width: 200px;
+    font-size: 18px;
+    font-weight: 100;
+    color: #fff;
+    cursor: pointer;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.itemsListaSide{
+    margin-top: 1.2rem;
+}
+.botonSideBar:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.botonSideBar:focus {
+    outline: none;
+}
+
+.botonSideBar.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+.botonSideBar.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.botonSideBar.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+#title-carrito{
+  width: 1 rem;
+}

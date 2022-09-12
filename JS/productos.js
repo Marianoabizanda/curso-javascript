@@ -5,18 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const DOMcarrito = document.getElementById('carrito');
     const DOMbotonVaciar = document.getElementById("boton-vaciar");
     const DOMtotal = document.querySelector('#total');
+    const botonPedir = document.getElementById("boton-comprar");
     carrito = [];
 
+      
+
+
+        async function listaDeProductos() {
+            const resp = await fetch("../productos.json")
+            const data = await resp.json()
+            listaDeProductos = data;
+            renderizarProductos();
+        }
     
-
-    async function listaDeProductos() {
-        const resp = await fetch("../vinos.json")
-        const data = await resp.json()
-        listaDeProductos = data;
-        renderizarProductos();
-    }
-
-    listaDeProductos()  
+        listaDeProductos()  
 
 
 
@@ -73,12 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
         guardarCarritoEnLocalStorage();
 
         Toastify({
-            text: "Se agrego un producto al carrito",
+            text: "Se agregó un producto al carrito",
             className: 'btn btn-primary',
             gravity: 'top',
             position: "right",
         }).showToast();
     }
+    
+    
 
     function renderizarCarrito(){
 
@@ -116,6 +120,38 @@ document.addEventListener('DOMContentLoaded', () => {
         
         DOMtotal.innerText = calcularTotal();
     }
+
+
+
+
+
+
+
+    // filtro --------------------------------------------------------------------------------
+
+    let botonCervezas = document.getElementById("botonCervezas")
+    let botonVinos = document.getElementById("botonVinos") 
+
+    botonCervezas.addEventListener("click", function () {
+        filtrarCategoria("cerveza")
+      })
+    botonVinos.addEventListener("click", function () {
+        filtrarCategoria("vino")
+      })
+
+    function filtrarCategoria(categoria) {
+        let lista = listaDeProductos.filter((producto) => producto.categoria == categoria)
+        listaDeProductos.innerHTML = ""
+        render(lista)
+      }    
+    
+    //   ---------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
     function borrarItemCarrito(e) {
@@ -156,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (result.isConfirmed) {
                 Swal.fire('Buena elección!', '', 'success')
             } else if (result.isDenied) {
-                Swal.fire('Te esperamos nuevamente!', '', 'info');
+                Swal.fire('Tu carrito quedó vacio!', '', 'info');
 
                 // Borramos todos los productos
 
@@ -185,13 +221,102 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const realizarPedido = ({
+        value: email
+    }) => {
+        (async () => {
+
+            const {
+                value: email
+            } = await Swal.fire({
+                title: 'Te enviaremos el Link de pago',
+                input: 'email',
+                inputLabel: 'Ingresa tu email',
+                inputPlaceholder: 'Email'
+            })
+
+            if (email) {
+                Swal.fire(`Finaliza tu compra ingresando a: ${email}`)
+            }
+              // Limpiamos los productos guardados
+              carrito = [];
+              // Renderizamos los cambios
+              renderizarCarrito();
+              // Borra LocalStorage
+              localStorage.removeItem('carrito');
+              localStorage.clear();
+           
+        })()
+    }
+
     // Eventos
 
     DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+    botonPedir.addEventListener("click", realizarPedido);
 
 
     cargarCarritoDeLocalStorage();
     renderizarProductos();
     renderizarCarrito();
 
-    });
+    })
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

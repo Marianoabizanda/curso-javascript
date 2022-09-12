@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "nombre": "Quilmes",
+        "precio": 100,
+        "stock": 500,
+        "categoria": "cerveza",
+        "img": "../images/cervezas/QUILMES-LATA-473-300X300.webp"
+    },{
+        "id": 2,
+        "nombre": "Brahma",
+        "precio": 120,
+        "stock": 450 , 
+        "categoria": "cerveza",
+        "img": "../images/cervezas/BRAHMA-LATA-300X300.webp"
+    },{
+        "id": 3,
+        "nombre": "Heineken",
+        "precio": 150,
+        "stock": 370,
+        "categoria": "cerveza",
+        "img": "../images/cervezas/AnyConv.com__HEINEKEN-473-300X300(1).webp"
+    },{
+        "id": 4,
+        "nombre": "Stella Artois",
+        "precio": 220,
+        "stock": 450,
+        "categoria": "cerveza",
+        "img": "../images/cervezas/AnyConv.com__Stella-Lata-300x300.webp"
+    },{
+        "id": 5,
+        "nombre": "Stella Noire",
+        "precio": 220,
+        "stock": 400,
+        "categoria": "cerveza",
+        "img": "../images/cervezas/AnyConv.com__project_20200925_1319378-011-1e181d976f40159ac316010508482964-1024-1024-300x300.webp"
+    },{
+        "id": 6,
+        "nombre": "Corona",
+        "precio": 230,
+        "stock": 300,
+        "categoria": "cerveza",
+        "img": "../images/cervezas/CERVEZA-CORONA-710-300x300.webp"
+    }, {
+        "id": 7,
+        "nombre": "Alamos-Cabernet",
+        "precio": 230,
+        "stock": 300,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__0018-ALAMOS-CABERNET-300x300(1).webp"
+    },{
+        "id": 8,
+        "nombre": "Alamos-Chardonnay",
+        "precio": 250,
+        "stock": 220 , 
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__0019-ALAMOS-CHARDONNAY-300x300.webp"
+    },{
+        "id": 9,
+        "nombre": "Alamos- Malbec",
+        "precio": 240,
+        "stock": 370,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__0020-ALAMOS-MALBEC-300x300.webp"
+    },{
+        "id": 10,
+        "nombre": "Aime Red Blend",
+        "precio": 270,
+        "stock": 450,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__Aime-Red-Blend-300x300.webp"
+    },{
+        "id": 11,
+        "nombre": "Alambrado- Cabernet",
+        "precio": 300,
+        "stock": 400,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__Alambrado-Cabernet-Sauvignon-300x300.webp"
+    },{
+        "id": 12,
+        "nombre": "Cafayate",
+        "precio": 200,
+        "stock": 305,
+        "categoria": "vino",
+        "img": "../images/images vinos/AnyConv.com__Cafayate 3016-300x300.webp"
+    }    
+]
+
+
+
