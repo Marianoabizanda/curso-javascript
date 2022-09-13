@@ -122,38 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
-
-
-
-
-    // filtro --------------------------------------------------------------------------------
-
-    let botonCervezas = document.getElementById("botonCervezas")
-    let botonVinos = document.getElementById("botonVinos") 
-
-    botonCervezas.addEventListener("click", function () {
-        filtrarCategoria("cerveza")
-      })
-    botonVinos.addEventListener("click", function () {
-        filtrarCategoria("vino")
-      })
-
-    function filtrarCategoria(categoria) {
-        let lista = listaDeProductos.filter((producto) => producto.categoria == categoria)
-        listaDeProductos.innerHTML = ""
-        render(lista)
-      }    
-    
-    //   ---------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
     function borrarItemCarrito(e) {
         // Obtenemos el producto ID que hay en el boton pulsado
         const id = e.target.dataset.item;
